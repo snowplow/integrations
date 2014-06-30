@@ -62,6 +62,11 @@ describe('StackLead', function () {
       var identify = helpers.identify();
       stacklead.identify(identify, webhook, done);
     });
+
+    it('should identify successfully with custom html', function (done) {
+      var identify = helpers.identify({ integrations: { StackLead: { html: '<h1>woo!</h1>'}}});
+      stacklead.identify(identify, settings, done);
+    });
   });
 
   describe('.track()', function () {
