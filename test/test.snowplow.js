@@ -10,58 +10,53 @@ describe('Snowplow', function () {
 
   var settings = auth['Snowplow'];
 
-  describe('universal', function () {
-
-    describe('.enabled()', function () {
-      it('should only be enabled for server side messages', function () {
-        snowplow.enabled(new facade.Track({ channel : 'server' }), settings).should.be.ok;
-        snowplow.enabled(new facade.Track({ channel : 'client' }), settings).should.not.be.ok;
-        snowplow.enabled(new facade.Track({}), {}).should.not.be.ok;
-      });
+  describe('.enabled()', function () {
+    it('should only be enabled for server side messages', function () {
+      snowplow.enabled(new facade.Track({ channel : 'server' }), settings).should.be.ok;
+      snowplow.enabled(new facade.Track({ channel : 'client' }), settings).should.not.be.ok;
+      snowplow.enabled(new facade.Track({}), {}).should.not.be.ok;
     });
-
-    describe('.page()', function(){
-      it('should get a good response from the API', function(done){
-        var page = helpers.page();
-        snowplow.page(page, settings, done);
-      });
-    });
-
-    describe('.track()', function(){
-      it('should get a good response from the API', function(done){
-        var track = helpers.track();
-        snowplow.track(track, settings, done);
-      });
-    });
-
-    describe('ecommerce', function(){
-      it('should send ecommerce data', function(done){
-        var track = helpers.transaction();
-        snowplow.track(track, settings, done);
-      });
-    });
-
-
-    describe('.identify()', function () {
-      it('should do nothing', function (done) {
-        snowplow.identify({}, settings, function (err) {
-          should.not.exist(err);
-          done();
-        });
-      });
-    });
-
-
-    describe('.alias()', function () {
-      it('should do nothing', function (done) {
-        snowplow.alias({}, settings, function (err) {
-          should.not.exist(err);
-          done();
-        });
-      });
-    });
-
   });
 
+  describe('.page()', function(){
+    it('should get a good response from the API', function (done){
+      var page = helpers.page();
+      snowplow.page(page, settings, done);
+    });
+  });
+
+  describe('.track()', function(){
+    it('should get a good response from the API', function (done){
+      var track = helpers.track();
+      snowplow.track(track, settings, done);
+    });
+  });
+
+  describe('ecommerce', function(){
+    it('should send ecommerce data', function (done){
+      var track = helpers.transaction();
+      snowplow.track(track, settings, done);
+    });
+  });
+
+
+  describe('.identify()', function () {
+    it('should do nothing', function (done) {
+      snowplow.identify({}, settings, function (err) {
+        should.not.exist(err);
+        done();
+      });
+    });
+  });
+
+
+  describe('.alias()', function () {
+    it('should do nothing', function (done) {
+      snowplow.alias({}, settings, function (err) {
+        should.not.exist(err);
+        done();
+      });
+    });
+  });
 
 });
