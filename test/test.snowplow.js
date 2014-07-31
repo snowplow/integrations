@@ -19,10 +19,10 @@ describe('Snowplow', function () {
   });
 
   describe('.validate()', function () {
-    it('should require a collectorUri', function () {
-      snowplow.validate({}, { collectorUri: '' }).should.be.an.instanceOf(Error);
+    it('should require a collectorUrl', function () {
+      snowplow.validate({}, { collectorUrl: '' }).should.be.an.instanceOf(Error);
       snowplow.validate({}, {}).should.be.an.instanceOf(Error);
-      should.not.exist(snowplow.validate({}, { collectorUri : 'd3rkrsqld9gmqf.cloudfront.net' }));
+      should.not.exist(snowplow.validate({}, { collectorUrl : 'd3rkrsqld9gmqf.cloudfront.net' }));
     });
   });
 
