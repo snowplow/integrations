@@ -14,8 +14,15 @@ describe('Snowplow', function () {
     it('should only be enabled for server side messages', function () {
       snowplow.enabled(new facade.Track({ channel : 'server' }), settings).should.be.ok;
       snowplow.enabled(new facade.Track({ channel : 'client' }), settings).should.not.be.ok;
-      snowplow.enabled(new facade.Track({ channel : 'client' }), {}).should.not.be.ok;
       snowplow.enabled(new facade.Track({}), {}).should.not.be.ok;
+    });
+  });
+
+  describe('.validate()', function () {
+    it('should require a collectorUri', function () {
+      snowplow.validate({}, { collectorUri: '' }).should.be.an.instanceOf(Error);
+      snowplow.validate({}, {}).should.be.an.instanceOf(Error);
+      should.not.exist(snowplow.validate({}, { collectorUri : 'd3rkrsqld9gmqf.cloudfront.net' }));
     });
   });
 
