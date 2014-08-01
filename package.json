@@ -32,11 +32,13 @@
     "unix-time": "~1.0.1"
   },
   "devDependencies": {
-    "should": "~1.2.2",
-    "mocha": "*",
     "express": "~3.2.6",
-    "uid": "0.0.2",
     "make-lint": "~1.0.1",
-    "segmentio-integration-tester": "*"
+    "mocha": "*",
+    "segmentio-integration-tester": "*",
+    "should": "~1.2.2",
+    "snowplow-tracker-core": "^0.1.0",
+    "uid": "0.0.2",
+    "uuid": "^1.4.1"
   }
 }
