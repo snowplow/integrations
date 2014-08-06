@@ -13,6 +13,7 @@ describe('Snowplow', function () {
   describe('.enabled()', function () {
     it('should only be enabled for server side messages', function () {
       snowplow.enabled(new facade.Track({ channel : 'server' }), settings).should.be.ok;
+      snowplow.enabled(new facade.Track({ channel : 'mobile' }), settings).should.be.ok;
       snowplow.enabled(new facade.Track({ channel : 'client' }), settings).should.not.be.ok;
       snowplow.enabled(new facade.Track({}), {}).should.not.be.ok;
     });
