@@ -26,6 +26,7 @@
     "segmentio-facade": "~1.2.0",
     "segmentio-integration": "~1.2.0",
     "segmentio-transform-legacy": "^2.0.0",
+    "snowplow-tracker-core": "^0.2.0",
     "string-hash": "~1.1.0",
     "to-title-case": "^0.1.4",
     "ua-parser-js": "0.6.X",
@@ -37,8 +38,6 @@
     "mocha": "*",
     "segmentio-integration-tester": "*",
     "should": "~1.2.2",
-    "snowplow-tracker-core": "^0.1.0",
-    "uid": "0.0.2",
-    "uuid": "^1.4.1"
+    "uid": "0.0.2"
   }
 }
