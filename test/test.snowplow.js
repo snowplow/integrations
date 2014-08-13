@@ -34,6 +34,14 @@ describe('Snowplow', function () {
     });
   });
 
+
+  describe('.screen()', function () {
+    it('should get a good response from the API', function (done) {
+      var screen = helpers.screen();
+      snowplow.screen(screen, settings, done);
+    });
+  });
+
   describe('.track()', function () {
     it('should get a good response from the API', function (done) {
       var track = helpers.track();
